@@ -6,16 +6,22 @@ from .views import (CategoryViewSet,
                     TitleViewSet,
                     ReviewViewSet,
                     CommentsViewSet)
-from users.views import (UserViewSet,
-                        CodeGenerationViewSet,
-                        TokenGenerationViewSet)
+from users.views import (
+    UserViewSet,
+    CodeGenerationViewSet,
+    TokenGenerationViewSet
+)
 
 router_v1 = DefaultRouter()
 
 
 router_v1.register(r'users', UserViewSet, basename='user')
 router_v1.register(r'auth/email', CodeGenerationViewSet, basename='send_code')
-router_v1.register(r'auth/token', TokenGenerationViewSet, basename='send_token')
+router_v1.register(
+    r'auth/token',
+    TokenGenerationViewSet,
+    basename='send_token'
+)
 router_v1.register(r'categories', CategoryViewSet, basename='categories')
 router_v1.register(r'genres', GenreViewSet, basename='genres')
 router_v1.register(r'titles', TitleViewSet, basename='titles')

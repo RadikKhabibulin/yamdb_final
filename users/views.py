@@ -53,7 +53,7 @@ class CodeGenerationViewSet(mixins.CreateModelMixin,
         user, created = User.objects.get_or_create(
             email=email,
             defaults={'email': email, 'username': email.partition("@")[0]}
-            )
+        )
         confirmation_code = default_token_generator.make_token(user)
         user.confirmation_code = confirmation_code
         if created:
@@ -66,7 +66,7 @@ class CodeGenerationViewSet(mixins.CreateModelMixin,
             from_email=FROM_EMAIL,
             recipient_list=[email],
             fail_silently=False,
-            )
+        )
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 

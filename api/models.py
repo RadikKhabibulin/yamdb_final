@@ -25,7 +25,9 @@ class Title(models.Model):
     name = models.CharField(max_length=200)
     year = models.PositiveIntegerField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
+    category = models.ForeignKey(
+        Category, on_delete=models.SET_NULL, blank=True, null=True
+    )
     genre = models.ManyToManyField(Genre, blank=True)
 
     def __str__(self):
@@ -38,8 +40,9 @@ class Review(models.Model):
     title = models.ForeignKey(Title, on_delete=models.CASCADE,
                               related_name="review")
     text = models.TextField()
-    score = models.PositiveIntegerField(validators=[MinValueValidator(1),
-                                       MaxValueValidator(10)], null=True)
+    score = models.PositiveIntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(10)], null=True
+    )
     pub_date = models.DateTimeField("Дата добавления", auto_now_add=True,
                                     db_index=True)
 
@@ -53,11 +56,14 @@ class Comments(models.Model):
     review = models.ForeignKey(Review, on_delete=models.CASCADE,
                                related_name="comments")
     text = models.TextField()
-    pub_date = models.DateTimeField("Дата добавления", auto_now_add=True,
-                                   db_index=True)
+    pub_date = models.DateTimeField(
+        "Дата добавления",
+        auto_now_add=True,
+        db_index=True
+    )
 
     class Meta:
         ordering = ("-pub_date",)
-        
+
     def __str__(self):
         return self.text

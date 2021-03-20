@@ -4,8 +4,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, viewsets, mixins
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
-from .models import Category, Genre, Title, Review, Comments
-from users.models import User
+from .models import Category, Genre, Title, Review
 from .filters import TitleFilter
 from .permissions import IsAdminOrReadOnly, IsAuthorAdminModeratorOrReadOnly
 from .serializers import (
