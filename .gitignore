@@ -1,6 +1,7 @@
 .git/*
 env/
 venv/
+data/
 .venv
 .venv/
 .env

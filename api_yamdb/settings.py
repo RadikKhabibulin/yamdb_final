@@ -11,12 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-# import environ
 from datetime import timedelta
 
-# env = environ.Env()
-# environ.Env.read_env()
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -88,7 +84,6 @@ WSGI_APPLICATION = 'api_yamdb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        # 'ENGINE': os.environ.get('DB_ENGINE'),
         'NAME': os.environ.get('DB_NAME'),
         'USER': os.environ.get('POSTGRES_USER'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
@@ -96,9 +91,7 @@ DATABASES = {
         'PORT': os.environ.get('DB_PORT'),
     }
 }
-# DATABASES = {
-#     'default': env.db(),
-# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -140,7 +133,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/code/static/'
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
 
 
 REST_FRAMEWORK = {

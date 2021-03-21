@@ -15,20 +15,22 @@ To start the project, you need to install Docker. Download this program from the
 
 ```
 Install Docker by following the installation instructions on Windows and macOS.
-Installation instructions for Linux: https://docs.docker.com/engine/install/ubuntu/ .
+Installation instructions for Linux: https://docs.docker.com/engine/install/ubuntu/
 
 ```
 
 ## Deployment
 
 1. Сreate an env file in the root directory of the project and add the following variables to it:
-    FROM_EMAIL=<example@gmail.com>
-    DB_ENGINE=django.db.backends.postgresql
-    DB_NAME=<postgres_name>
-    POSTGRES_USER=<postgres_user>
-    POSTGRES_PASSWORD=<postgres_password>
-    DB_HOST=db
-    DB_PORT=<port>
+```
+FROM_EMAIL=<example@gmail.com>
+DB_ENGINE=django.db.backends.postgresql
+DB_NAME=<postgres_name>
+POSTGRES_USER=<postgres_user>
+POSTGRES_PASSWORD=<postgres_password>
+DB_HOST=db
+DB_PORT=<port>
+```
 
 2. Create an image and run the containers with the command:
 ```
@@ -42,7 +44,7 @@ docker-compose up
 docker container ls
 ```
 
-3. Log in to the container using its ID and perform database migrations:
+2. Log in to the container using its ID and perform database migrations:
 ```
 docker exec -it <CONTAINER ID> bash
 ```
@@ -55,7 +57,7 @@ and
 python manage.py createsuperuser
 ```
 
-4. If you need to populate the database with your own data, replace
+3. If you need to populate the database with your own data, replace
    the "fixtures.json" file with your own and run the Deployment section.
 
 ## Built With
