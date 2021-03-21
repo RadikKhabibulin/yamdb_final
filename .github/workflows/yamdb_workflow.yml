@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: radikkhabibulin/yamdb_final:latest
+          tags: radikkhabibulin/yamdb_final_web:latest
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
@@ -55,9 +55,10 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            sudo docker pull radikkhabibulin/yamdb_final
+            id=$(sudo docker create ${{ secrets.DOCKER_USERNAME }}/yamdb_final_web:latest)
+            sudo docker cp $id:code/docker-compose.yaml docker-compose.yaml
             sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 5003:5003 radikkhabibulin/yamdb_final
+            sudo docker-compose up
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
