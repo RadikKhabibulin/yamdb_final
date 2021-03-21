@@ -6,5 +6,6 @@ COPY . .
 
 RUN pip install -r requirements.txt
 RUN python manage.py collectstatic --noinput
+RUN chmod +x entrypoint.sh
 
 CMD ./entrypoint.sh
