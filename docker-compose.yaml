@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.3'
 
 volumes:
   postgres_data:
@@ -25,7 +25,7 @@ services:
       - ./.env
 
   nginx:
-    build: nginx/ .
+    image: radikkhabibulin/yamdb_final_nginx
     restart: always
     volumes:
       - django_static:/code/static/
