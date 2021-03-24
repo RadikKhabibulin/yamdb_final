@@ -3,6 +3,7 @@ version: '3.3'
 volumes:
   postgres_data:
   django_static:
+  nginx:
 
 services:
   db:
@@ -14,8 +15,10 @@ services:
 
   web:
     image: radikkhabibulin/yamdb_final_web
+    # build: .
     volumes: 
       - django_static:/code/static/
+      - nginx:/code/nginx/
     restart: always
     ports:
       - "5002:5002"
@@ -25,10 +28,12 @@ services:
       - ./.env
 
   nginx:
-    image: radikkhabibulin/yamdb_final_nginx
+    # image: radikkhabibulin/yamdb_final_nginx
+    image: nginx
     restart: always
     volumes:
       - django_static:/static/
+      - nginx:/etc/nginx/conf.d/
     ports: 
       - "5003:5003"
     depends_on: 

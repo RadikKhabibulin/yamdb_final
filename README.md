@@ -68,3 +68,7 @@ python manage.py createsuperuser
 ## Authors
 
 * **Radik Khabibulin** - *Initial work* - [RadikKhabibulin](https://github.com/RadikKhabibulin)
+
+## Project
+
+View the project - https://217.28.229.197:5003
