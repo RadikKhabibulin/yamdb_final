@@ -71,4 +71,4 @@ python manage.py createsuperuser
 
 ## Project
 
-View the project - https://217.28.229.197:5003
+View the project - http://217.28.229.197:5003/redoc

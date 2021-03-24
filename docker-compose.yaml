@@ -15,7 +15,6 @@ services:
 
   web:
     image: radikkhabibulin/yamdb_final_web
-    # build: .
     volumes: 
       - django_static:/code/static/
       - nginx:/code/nginx/
@@ -28,7 +27,6 @@ services:
       - ./.env
 
   nginx:
-    # image: radikkhabibulin/yamdb_final_nginx
     image: nginx
     restart: always
     volumes:
