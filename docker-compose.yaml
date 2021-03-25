@@ -27,7 +27,7 @@ services:
       - ./.env
 
   nginx:
-    image: nginx
+    image: nginx:1.19.8-alpine
     restart: always
     volumes:
       - django_static:/static/
